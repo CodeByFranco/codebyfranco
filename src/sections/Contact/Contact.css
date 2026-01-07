@@ -1,0 +1,173 @@
+.contact-section {
+  position: relative;
+  width: 100%;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2rem 4rem 2rem;
+  margin-top: -120px;
+  overflow: hidden;
+}
+
+.contact-content {
+  position: relative;
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.contact-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  font-family: 'League Spartan', sans-serif;
+  line-height: 1.2;
+}
+
+.contact-description {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 300;
+  max-width: 600px;
+}
+
+.contact-button {
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  border: none;
+  background: #3b82f6;
+  color: #ffffff;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  box-shadow: 
+    0 8px 32px 0 rgba(59, 130, 246, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  
+  /* Magic Bento variables */
+  --glow-x: 50%;
+  --glow-y: 50%;
+  --glow-intensity: 0;
+  --glow-radius: 170px;
+}
+
+.contact-button:hover {
+  background: #2563eb;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 
+    0 12px 40px 0 rgba(59, 130, 246, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.contact-button:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.contact-button-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.contact-divider-text {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  font-family: 'Courier New', monospace;
+  font-weight: 400;
+  margin-top: 1rem;
+}
+
+.contact-social-links {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.contact-social-link {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 
+    0 8px 32px 0 rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.contact-social-link:hover {
+  background: rgba(59, 130, 246, 0.2);
+  border-color: rgba(59, 130, 246, 0.5);
+  transform: translateY(-4px);
+  box-shadow: 
+    0 12px 40px 0 rgba(59, 130, 246, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.contact-social-link svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .contact-section {
+    min-height: 500px;
+    padding: 3rem 1.5rem;
+  }
+
+  .contact-title {
+    font-size: 2rem;
+  }
+
+  .contact-description {
+    font-size: 1rem;
+  }
+
+  .contact-button {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .contact-social-links {
+    gap: 1rem;
+  }
+
+  .contact-social-link {
+    width: 48px;
+    height: 48px;
+  }
+
+  .contact-social-link svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+

@@ -1,0 +1,559 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  position: fixed;
+  top: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1200px;
+  z-index: 100;
+  box-shadow: 
+    0 8px 32px 0 rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.1),
+    rgba(59, 130, 246, 0.05)
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border-radius: 30px;
+  z-index: -1;
+}
+
+.header:hover::before {
+  opacity: 1;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-family: 'League Spartan', sans-serif;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.logo:hover {
+  transform: translateY(-2px);
+}
+
+.logo-codeby {
+  color: #e5e5e5;
+}
+
+.logo-franco {
+  color: #3b82f6;
+}
+
+.menu-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border-radius: 10px;
+  z-index: 1;
+}
+
+.menu-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(139, 92, 246, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border-radius: 10px;
+  z-index: -1;
+}
+
+.menu-button:hover::before {
+  opacity: 1;
+}
+
+.menu-button:hover {
+  transform: translateY(-2px);
+}
+
+.menu-button span {
+  width: 24px;
+  height: 2px;
+  background-color: #ffffff;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  z-index: 1;
+}
+
+.menu-button:hover span {
+  background-color: #ffffff;
+}
+
+.menu-button.active span:nth-child(1) {
+  transform: rotate(45deg) translate(8px, 8px);
+}
+
+.menu-button.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-button.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Header Menu Container */
+.header-menu-container {
+  position: relative;
+  z-index: 1000;
+}
+
+/* Navbar Dropdown */
+.navbar-dropdown {
+  position: absolute;
+  top: calc(100% + 1rem);
+  right: 0;
+  min-width: 250px;
+  background: #0a0a0a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 1rem 0;
+  box-shadow: 
+    0 8px 32px 0 rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  animation: slideDown 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 1000;
+  overflow: hidden;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.navbar-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(59, 130, 246, 0.1);
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: -1;
+}
+
+.navbar-item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-left: 3px solid rgba(59, 130, 246, 0.6);
+  padding-left: calc(1.5rem - 3px);
+}
+
+.navbar-item:hover::before {
+  opacity: 1;
+}
+
+.navbar-item-icon {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.8);
+  transition: color 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.navbar-item:hover .navbar-item-icon {
+  color: #60a5fa;
+}
+
+.navbar-item-text {
+  flex: 1;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* Responsivo para o navbar */
+@media (max-width: 768px) {
+  .navbar-dropdown {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, -50%);
+    min-width: 280px;
+    max-width: 90%;
+    width: auto;
+    animation: slideDownMobile 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  @keyframes slideDownMobile {
+    from {
+      opacity: 0;
+      transform: translate(-50%, calc(-50% - 10px)) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  .navbar-item {
+    padding: 0.875rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .navbar-item-icon {
+    font-size: 1.125rem;
+  }
+}
+
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 2rem;
+  z-index: 1;
+}
+
+.content-wrapper {
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  min-height: calc(100vh - 120px);
+  padding-top: 8rem;
+  opacity: 0;
+  animation: contentFadeIn 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s forwards;
+}
+
+.name-title {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+  font-family: 'League Spartan', sans-serif;
+}
+
+.divider-line {
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(to right, 
+    transparent 0%, 
+    #e5e5e5 30%, 
+    #e5e5e5 80%, 
+    transparent 100%
+  );
+  margin: 0.25rem auto 1.5rem auto;
+  opacity: 0;
+  animation: dividerFadeIn 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.9s forwards;
+}
+
+@keyframes dividerFadeIn {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: center;
+  }
+  to {
+    opacity: 0.2;
+    transform: scaleX(1);
+    transform-origin: center;
+  }
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: #ffffff;
+  margin-bottom: 2rem;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 500;
+}
+
+.description {
+  text-align: center;
+  font-size: 18px;
+  line-height: 22px;
+  color: #ffffff;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 300;
+}
+
+.highlight {
+  color: #3b82f6;
+  font-weight: 700;
+}
+
+/* Animações de aparição */
+@keyframes contentFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.7s forwards;
+  opacity: 0;
+}
+
+.fade-in-delay-1 {
+  animation: fadeIn 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.9s forwards;
+  opacity: 0;
+}
+
+.fade-in-delay-2 {
+  animation: fadeIn 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.1s forwards;
+  opacity: 0;
+}
+
+.fade-in-delay-3 {
+  animation: fadeIn 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.3s forwards;
+  opacity: 0;
+}
+
+/* Menu Rápido */
+.quick-menu {
+  margin-top: 3rem;
+  width: 100%;
+}
+
+.quick-menu-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  font-family: 'League Spartan', sans-serif;
+  text-align: center;
+}
+
+.menu-text {
+  color: #ffffff;
+}
+
+.rapido-text {
+  color: #3b82f6;
+}
+
+.menu-buttons {
+  display: flex;
+  gap: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.menu-item {
+  padding: 1rem 1.5rem;
+  border-radius: 50px;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 200px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  
+  /* Magic Bento variables */
+  --glow-x: 50%;
+  --glow-y: 50%;
+  --glow-intensity: 0;
+  --glow-radius: 170px;
+  will-change: transform;
+}
+
+.menu-buttons .menu-item:nth-child(4) {
+  grid-column: 2;
+}
+
+.menu-buttons .menu-item:nth-child(5) {
+  grid-column: 3;
+}
+
+.menu-item.active {
+  background-color: #3b82f6;
+  border-color: #3b82f6;
+}
+
+.menu-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.3),
+    rgba(59, 130, 246, 0.2)
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  border-radius: 50px;
+  z-index: -1;
+}
+
+.menu-item:hover {
+  background-color: rgba(139, 92, 246, 0.25);
+  border-color: rgba(59, 130, 246, 0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 
+    0 8px 32px 0 rgba(139, 92, 246, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px) scale(1.02);
+}
+
+.menu-item:hover::before {
+  opacity: 1;
+}
+
+.menu-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  background: radial-gradient(
+    var(--glow-radius) circle at var(--glow-x) var(--glow-y),
+    rgba(59, 130, 246, calc(var(--glow-intensity) * 0.8)) 0%,
+    rgba(59, 130, 246, calc(var(--glow-intensity) * 0.4)) 30%,
+    transparent 60%
+  );
+  border-radius: inherit;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: 1;
+}
+
+.magic-button-spotlight {
+  mix-blend-mode: screen;
+  will-change: transform, opacity;
+  z-index: 200 !important;
+  pointer-events: none;
+}
+
+.menu-item.active:hover {
+  background-color: #3b82f6;
+  border-color: #3b82f6;
+}
+
+/* Scroll Reveal Animation */
+.scroll-reveal {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.scroll-reveal.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-reveal:first-of-type {
+  padding-top: 6rem;
+}
+
+.scroll-reveal:last-of-type {
+  padding-top: 2rem;
+}

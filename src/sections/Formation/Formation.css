@@ -1,0 +1,453 @@
+.formation-section {
+  margin-top: 4rem;
+  width: 100%;
+}
+
+.formation-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  font-family: 'League Spartan', sans-serif;
+  text-align: center;
+}
+
+.formacao-text {
+  color: #3b82f6;
+}
+
+.cursos-text {
+  color: #ffffff;
+}
+
+.divider-line-formation {
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(to right, 
+    transparent 0%, 
+    #e5e5e5 30%, 
+    #e5e5e5 80%, 
+    transparent 100%
+  );
+  margin: 1rem auto 2rem auto;
+  opacity: 0.5;
+}
+
+.formation-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.formation-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formation-card {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid #3b82f6;
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.3s ease;
+}
+
+.formation-card:hover {
+  background-color: rgba(59, 130, 246, 0.1);
+  border-color: #60a5fa;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.2);
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  font-family: 'League Spartan', sans-serif;
+}
+
+.card-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ffffff;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 400;
+}
+
+.courses-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.course-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.check-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #3b82f6;
+  color: #ffffff;
+  font-size: 0.875rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.course-text {
+  flex: 1;
+}
+
+.status-comment {
+  display: block;
+  font-size: 0.875rem;
+  color: #60a5fa;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+
+/* Animações de aparição */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-delay-5 {
+  animation: fadeIn 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.75s forwards;
+  opacity: 0;
+}
+
+/* Certificados */
+.certificates-section-wrapper {
+  margin-top: 4px;
+  width: 100%;
+  padding: 2rem 1rem;
+}
+
+.certificates-section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+  font-family: 'League Spartan', sans-serif;
+  text-align: center;
+  letter-spacing: -0.02em;
+}
+
+.certificados-text {
+  color: #60a5fa;
+  text-shadow: 
+    0 0 20px rgba(96, 165, 250, 0.5),
+    0 0 40px rgba(96, 165, 250, 0.3),
+    0 0 60px rgba(96, 165, 250, 0.2);
+  filter: brightness(1.2);
+}
+
+.certificates-section-wrapper .divider-line-formation {
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 20%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0.3) 80%,
+    transparent 100%
+  );
+  height: 1px;
+  width: 80%;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  box-shadow: 
+    0 0 10px rgba(255, 255, 255, 0.3),
+    0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.certificates-carousel-wrapper {
+  position: relative;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2rem 0;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.certificates-stack {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.certificate-card-simple {
+  background: #000000;
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 2px solid rgba(96, 165, 250, 0.5);
+  border-radius: 0;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 280px;
+  height: 180px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -140px;
+  margin-top: -90px;
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 0 30px rgba(96, 165, 250, 0.1);
+  overflow: hidden;
+}
+
+.certificate-card-simple.active {
+  border-color: rgba(96, 165, 250, 0.8);
+  box-shadow: 
+    0 8px 30px rgba(96, 165, 250, 0.4),
+    0 0 50px rgba(96, 165, 250, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.certificate-card-simple::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(96, 165, 250, 0.05) 0%,
+    transparent 50%,
+    rgba(96, 165, 250, 0.05) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.certificate-card-simple:hover {
+  border-color: rgba(96, 165, 250, 0.9);
+  background: #000000;
+  box-shadow: 
+    0 10px 40px rgba(96, 165, 250, 0.4),
+    0 0 60px rgba(96, 165, 250, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    0 0 80px rgba(96, 165, 250, 0.15);
+}
+
+.certificate-card-simple:hover::before {
+  opacity: 1;
+}
+
+.certificate-card-simple::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(96, 165, 250, 0.1) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.certificate-card-simple:hover::after {
+  opacity: 1;
+}
+
+.certificate-card-simple::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(96, 165, 250, 0.05) 0%,
+    transparent 50%,
+    rgba(96, 165, 250, 0.05) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+}
+
+.certificate-card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 1.2rem;
+  position: relative;
+  z-index: 1;
+  transform: skewY(3deg);
+}
+
+.certificate-icon-small {
+  color: #60a5fa;
+  margin-bottom: 0.3rem;
+  filter: drop-shadow(0 0 8px rgba(96, 165, 250, 0.6));
+  transition: all 0.4s ease;
+}
+
+.certificate-card-simple:hover .certificate-icon-small {
+  filter: drop-shadow(0 0 12px rgba(96, 165, 250, 0.9));
+  transform: scale(1.05);
+}
+
+.certificate-title-small {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+  font-family: 'League Spartan', sans-serif;
+  line-height: 1.2;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  transition: all 0.4s ease;
+}
+
+.certificate-card-simple:hover .certificate-title-small {
+  color: #ffffff;
+  text-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.5),
+    0 0 15px rgba(96, 165, 250, 0.3);
+}
+
+.certificate-date-small {
+  font-size: 0.7rem;
+  color: rgba(96, 165, 250, 0.9);
+  font-weight: 500;
+  text-shadow: 0 0 8px rgba(96, 165, 250, 0.5);
+}
+
+.certificate-nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 2px solid rgba(96, 165, 250, 0.5);
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  color: #60a5fa;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 100;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.certificate-nav-button:hover {
+  background: rgba(96, 165, 250, 0.2);
+  border-color: rgba(96, 165, 250, 0.8);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 
+    0 6px 20px rgba(96, 165, 250, 0.4),
+    0 0 30px rgba(96, 165, 250, 0.2);
+}
+
+.certificate-nav-prev {
+  left: -60px;
+}
+
+.certificate-nav-next {
+  right: -60px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .formation-content {
+    grid-template-columns: 1fr;
+  }
+
+  .certificates-carousel-wrapper {
+    max-width: 280px;
+    height: 200px;
+  }
+
+  .certificate-card-simple {
+    width: 240px;
+    height: 160px;
+    margin-left: -120px;
+    margin-top: -80px;
+  }
+
+  .certificate-card-content {
+    padding: 1rem;
+    gap: 0.4rem;
+  }
+
+  .certificate-title-small {
+    font-size: 0.85rem;
+  }
+
+  .certificate-icon-small {
+    width: 28px;
+    height: 28px;
+  }
+
+  .certificate-nav-button {
+    width: 38px;
+    height: 38px;
+  }
+
+  .certificate-nav-prev {
+    left: -50px;
+  }
+
+  .certificate-nav-next {
+    right: -50px;
+  }
+
+  .certificates-section-title {
+    font-size: 2rem;
+  }
+
+  .certificates-section-wrapper .divider-line-formation {
+    width: 90%;
+  }
+}
+
+
