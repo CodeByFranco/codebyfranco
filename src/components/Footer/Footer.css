@@ -107,8 +107,13 @@
 /* Responsivo */
 @media (max-width: 768px) {
   .footer {
-    padding: 2rem 1.5rem 1.5rem 1.5rem;
-    margin-top: 3rem;
+    padding: 2rem 0.75rem 1.5rem 0.75rem;
+    margin-top: 2rem;
+  }
+
+  .footer-content {
+    gap: 1.5rem;
+    padding: 0 0.25rem;
   }
 
   .footer-logo {

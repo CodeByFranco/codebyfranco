@@ -108,25 +108,38 @@ function App() {
     const updateHeader = () => {
       const scrollY = window.scrollY;
       const scrollThreshold = 100; // Começa a encolher após 100px
+      const isMobile = window.innerWidth <= 768;
 
       const logo = header.querySelector('.logo') as HTMLElement;
       const menuButton = header.querySelector('.menu-button') as HTMLElement;
 
       if (scrollY > scrollThreshold) {
         // Header compacto - DIMINUINDO
-        gsap.to(header, {
-          padding: '0.5rem 1.2rem',
-          top: '1rem',
-          borderRadius: '20px',
-          width: '70%', // Reduzindo a largura
-          maxWidth: '900px', // Reduzindo o max-width
-          duration: 0.3,
-          ease: 'power1.out'
-        });
+        if (isMobile) {
+          gsap.to(header, {
+            padding: '0.5rem 0.75rem',
+            top: '0.5rem',
+            borderRadius: '16px',
+            width: 'calc(100% - 1rem)',
+            maxWidth: 'none',
+            duration: 0.3,
+            ease: 'power1.out'
+          });
+        } else {
+          gsap.to(header, {
+            padding: '0.5rem 1.2rem',
+            top: '1rem',
+            borderRadius: '20px',
+            width: '70%',
+            maxWidth: '900px',
+            duration: 0.3,
+            ease: 'power1.out'
+          });
+        }
 
         if (logo) {
           gsap.to(logo, {
-            fontSize: '16px', // Reduzindo ainda mais
+            fontSize: isMobile ? '14px' : '16px',
             duration: 0.3,
             ease: 'power1.out'
           });
@@ -134,8 +147,8 @@ function App() {
 
         if (menuButton) {
           gsap.to(menuButton, {
-            padding: '6px',
-            scale: 0.9, // Reduzindo o botão de menu
+            padding: isMobile ? '5px' : '6px',
+            scale: isMobile ? 0.85 : 0.9,
             duration: 0.3,
             ease: 'power1.out'
           });
@@ -144,19 +157,31 @@ function App() {
         header.classList.add('header-compact');
       } else {
         // Header normal - TAMANHO ORIGINAL
-        gsap.to(header, {
-          padding: '1rem 2rem',
-          top: '2.5rem',
-          borderRadius: '30px',
-          width: '90%', // Largura original
-          maxWidth: '1200px', // Max-width original
-          duration: 0.3,
-          ease: 'power1.out'
-        });
+        if (isMobile) {
+          gsap.to(header, {
+            padding: '0.75rem 1rem',
+            top: '1rem',
+            borderRadius: '20px',
+            width: 'calc(100% - 1rem)',
+            maxWidth: 'none',
+            duration: 0.3,
+            ease: 'power1.out'
+          });
+        } else {
+          gsap.to(header, {
+            padding: '1rem 2rem',
+            top: '2.5rem',
+            borderRadius: '30px',
+            width: '90%',
+            maxWidth: '1200px',
+            duration: 0.3,
+            ease: 'power1.out'
+          });
+        }
 
         if (logo) {
           gsap.to(logo, {
-            fontSize: '20px', // Tamanho original
+            fontSize: isMobile ? '18px' : '20px',
             duration: 0.3,
             ease: 'power1.out'
           });
@@ -164,8 +189,8 @@ function App() {
 
         if (menuButton) {
           gsap.to(menuButton, {
-            padding: '8px',
-            scale: 1, // Tamanho original
+            padding: isMobile ? '6px' : '8px',
+            scale: 1,
             duration: 0.3,
             ease: 'power1.out'
           });
@@ -185,10 +210,12 @@ function App() {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', updateHeader, { passive: true });
     updateHeader(); // Estado inicial
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', updateHeader);
     };
   }, []);
 

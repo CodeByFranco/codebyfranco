@@ -395,22 +395,48 @@
 @media (max-width: 768px) {
   .codespace-section {
     min-height: 500px;
+    padding-bottom: 2rem;
   }
 
   .codespace-content {
-    padding: 2rem 1rem 3rem 1rem;
+    padding: 1.5rem 0.75rem 2.5rem 0.75rem;
   }
 
   .codespace-title {
     font-size: 1.75rem;
   }
 
+  .codespace-workspace {
+    margin-top: 1.5rem;
+  }
+
+  .codespace-main {
+    padding: 1.5rem;
+  }
+
   .projects-grid {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .project-card-content-wrapper {
+    padding: 1.25rem;
+  }
+
+  .project-title {
+    font-size: 1.125rem;
+  }
+
+  .project-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .project-description {
+    font-size: 0.8rem;
   }
 
   .more-projects-container {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     padding: 0.5rem;
   }
 
@@ -422,12 +448,15 @@
 
   .codespace-navbar {
     flex-wrap: wrap;
+    padding: 0.5rem 0.75rem;
   }
 
   .codespace-addressbar {
     width: 100%;
     margin-top: 0.5rem;
     margin-left: 0;
+    padding: 0.4rem 0.75rem;
+    font-size: 0.8rem;
   }
 }
 
