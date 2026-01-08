@@ -393,70 +393,71 @@
 
 /* Responsivo */
 @media (max-width: 768px) {
+  /* Força a seção a ignorar paddings laterais de containers pais se houver */
   .codespace-section {
     min-height: 500px;
     padding-bottom: 2rem;
-  }
+    width: 100vw; /* Usa a largura total da janela */
+    margin-left: 50%;
+    transform: translateX(-50%);
+  } 
 
   .codespace-content {
-    padding: 1.5rem 0.75rem 2.5rem 0.75rem;
+    padding: 15; /* Remove paddings que "esmagam" o conteúdo */
+    width: 100%;
+    max-width: 100%;
   }
 
-  .codespace-title {
-    font-size: 1.75rem;
-  }
-
+  /* Remove bordas e arredondamento para o workspace ocupar a tela toda */
   .codespace-workspace {
-    margin-top: 1.5rem;
+    margin-top: 1rem;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
   }
 
   .codespace-main {
-    padding: 1.5rem;
+    padding: 1rem 0.5rem; /* Reduzi o padding interno para sobrar mais espaço pros cards */
+    width: 100%;
   }
 
   .projects-grid {
     grid-template-columns: 1fr;
     gap: 1rem;
+    width: 100%;
+    padding: 0 0.5rem; /* Margem mínima apenas para os cards não colarem no vidro */
   }
 
-  .project-card-content-wrapper {
-    padding: 1.25rem;
+  .project-card {
+    width: 100%;
+    margin: 0;
   }
 
-  .project-title {
-    font-size: 1.125rem;
+  /* Ajuste no título para não bater nas bordas */
+  .codespace-title {
+    font-size: 1.6rem;
+    padding: 0 1rem;
+    word-wrap: break-word;
   }
 
-  .project-subtitle {
-    font-size: 0.8rem;
+  .codespace-section .divider-line-formation {
+    width: 90%;
   }
 
-  .project-description {
-    font-size: 0.8rem;
-  }
-
-  .more-projects-container {
-    margin-top: 1.5rem;
+  /* Ajuste da barra de endereços para não quebrar layout */
+  .codespace-navbar {
+    flex-wrap: nowrap; /* Mantém na mesma linha se possível */
+    overflow-x: auto;  /* Se for muito grande, permite scroll na barra */
     padding: 0.5rem;
   }
 
-  .more-projects-button {
-    font-size: 0.9rem;
-    padding: 0.875rem 1.25rem;
-    max-width: 100%;
-  }
-
-  .codespace-navbar {
-    flex-wrap: wrap;
-    padding: 0.5rem 0.75rem;
-  }
-
   .codespace-addressbar {
-    width: 100%;
-    margin-top: 0.5rem;
-    margin-left: 0;
-    padding: 0.4rem 0.75rem;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
@@ -508,6 +509,17 @@
   from {
     opacity: 0;
     transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slideUpMobile {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
   }
   to {
     opacity: 1;
@@ -709,20 +721,34 @@
 /* Responsivo do Modal */
 @media (max-width: 768px) {
   .project-modal-overlay {
+    display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
+    padding: 1rem 0.5rem;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    min-height: 100vh;
+    min-height: 100dvh;
+    scroll-behavior: smooth;
   }
 
   .project-modal-card {
-    max-width: calc(100% - 2rem);
+    max-width: calc(100% - 1rem);
     width: 100%;
     margin: auto;
-    max-height: 90vh;
+    max-height: 85vh;
+    max-height: 85dvh;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    position: relative;
+    align-self: center;
+    transform: translateY(0);
+    animation: slideUpMobile 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
   .project-modal-content {

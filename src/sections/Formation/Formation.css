@@ -399,27 +399,40 @@
 /* Responsivo */
 @media (max-width: 768px) {
   .formation-section {
-    margin-top: 2rem;
-    padding: 0 0.5rem;
+    min-height: 500px;
+    padding-bottom: 2rem;
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 1px;
   }
 
   .formation-title {
     font-size: 1.75rem;
+    padding: 0 1rem;
+  }
+
+  .divider-line-formation {
+    width: 90%;
   }
 
   .formation-content {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 0 0.25rem;
+    gap: 1.25rem;
+    padding: 30px;
+    width: 100%;
+    max-width: 100%;
   }
 
   .formation-card {
-    padding: 1.5rem;
+    padding: 1.25rem;
+    width: 100%;
+    border-radius: 10px;
   }
 
   .card-title {
     font-size: 1.25rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
   }
 
   .card-text {
@@ -427,12 +440,16 @@
   }
 
   .certificates-section-wrapper {
-    padding: 1.5rem 0.5rem;
-    margin-top: 2rem;
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    padding: 2rem 0;
+    margin-top: 1rem;
   }
 
   .certificates-section-title {
     font-size: 1.75rem;
+    padding: 0 1rem;
   }
 
   .certificates-section-wrapper .divider-line-formation {
@@ -440,15 +457,16 @@
   }
 
   .certificates-carousel-wrapper {
-    max-width: 280px;
-    height: 200px;
-    padding: 1.5rem 0;
+    max-width: 100%;
+    height: 220px;
+    padding: 0;
+    overflow: visible;
   }
 
   .certificate-card-simple {
-    width: 240px;
+    width: 260px;
     height: 160px;
-    margin-left: -120px;
+    margin-left: -130px;
     margin-top: -80px;
   }
 
@@ -467,16 +485,17 @@
   }
 
   .certificate-nav-button {
-    width: 38px;
-    height: 38px;
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.6);
   }
 
   .certificate-nav-prev {
-    left: -50px;
+    left: 10px;
   }
 
   .certificate-nav-next {
-    right: -50px;
+    right: 10px;
   }
 }
 

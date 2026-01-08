@@ -147,8 +147,8 @@ function App() {
 
         if (menuButton) {
           gsap.to(menuButton, {
-            padding: isMobile ? '5px' : '6px',
-            scale: isMobile ? 0.85 : 0.9,
+            padding: isMobile ? '10px' : '6px',
+            scale: 1,
             duration: 0.3,
             ease: 'power1.out'
           });
@@ -189,7 +189,7 @@ function App() {
 
         if (menuButton) {
           gsap.to(menuButton, {
-            padding: isMobile ? '6px' : '8px',
+            padding: isMobile ? '10px' : '8px',
             scale: 1,
             duration: 0.3,
             ease: 'power1.out'
@@ -293,7 +293,12 @@ function App() {
           </button>
           
           {isMenuOpen && (
-            <nav className="navbar-dropdown">
+            <>
+              <div 
+                className="navbar-overlay" 
+                onClick={() => setIsMenuOpen(false)}
+              />
+              <nav className="navbar-dropdown">
               <button 
                 className="navbar-item"
                 onClick={() => scrollToSection(contentWrapperRef)}
@@ -364,7 +369,8 @@ function App() {
                 </span>
                 <span className="navbar-item-text">Code Space</span>
               </button>
-            </nav>
+              </nav>
+            </>
           )}
         </div>
       </header>
