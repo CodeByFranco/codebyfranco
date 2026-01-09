@@ -36,8 +36,12 @@ function Formation() {
   const handlePrevious = () => {
     setCurrentCertIndex((prev) => (prev - 1 + certificates.length) % certificates.length)
   }
-  const courses = [
-    'Analise e Desenvolvimento de Sistemas (UCS - RS) -- Cursando',
+  const academicFormation = {
+    course: 'Analise e Desenvolvimento de Sistemas (UCS - RS)',
+    status: 'Cursando'
+  }
+  
+  const complementaryCourses = [
     'Desenvolvimento Web (HTML, CSS, JavaScript)',
     'Node.js e criação de APIs',
     'Next.js App Router e Testes',
@@ -53,12 +57,27 @@ function Formation() {
       </h2>
       <div className="divider-line-formation"></div>
       
+      {/* Card de Formação Acadêmica */}
+      <div className="academic-formation-card-wrapper">
+        <div className="academic-formation-card">
+          <div className="academic-icon">🎓</div>
+          <h3 className="academic-title">Formação Acadêmica</h3>
+          <div className="academic-content">
+            <p className="academic-text">{academicFormation.course}</p>
+            <button className="status-badge" aria-label={`Status: ${academicFormation.status}`}>
+              <span className="status-dot"></span>
+              <span className="status-text">{academicFormation.status}</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      
       <div className="formation-content">
         <div className="formation-column">
           <div className="formation-card">
-            <h3 className="card-title">Cursos Realizados</h3>
+            <h3 className="card-title">Cursos Complementares</h3>
             <ul className="courses-list">
-              {courses.map((course, index) => (
+              {complementaryCourses.map((course, index) => (
                 <li key={index} className="course-item">
                   <span className="check-icon">✓</span>
                   <span className="course-text">{course}</span>

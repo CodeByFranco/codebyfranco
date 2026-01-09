@@ -120,10 +120,12 @@ function App() {
             padding: '0.5rem 0.75rem',
             top: '0.5rem',
             borderRadius: '16px',
-            width: 'calc(100% - 1rem)',
-            maxWidth: 'none',
-            duration: 0.3,
-            ease: 'power1.out'
+            width: '60%',
+            maxWidth: 'calc(100% - 1rem)',
+            left: '50%',
+            x: '-50%',
+            duration: 0.15,
+            ease: 'power2.out'
           });
         } else {
           gsap.to(header, {
@@ -132,16 +134,16 @@ function App() {
             borderRadius: '20px',
             width: '70%',
             maxWidth: '900px',
-            duration: 0.3,
-            ease: 'power1.out'
+            duration: 0.15,
+            ease: 'power2.out'
           });
         }
 
         if (logo) {
           gsap.to(logo, {
             fontSize: isMobile ? '14px' : '16px',
-            duration: 0.3,
-            ease: 'power1.out'
+            duration: 0.15,
+            ease: 'power2.out'
           });
         }
 
@@ -149,8 +151,8 @@ function App() {
           gsap.to(menuButton, {
             padding: isMobile ? '10px' : '6px',
             scale: 1,
-            duration: 0.3,
-            ease: 'power1.out'
+            duration: 0.15,
+            ease: 'power2.out'
           });
         }
 
@@ -164,8 +166,10 @@ function App() {
             borderRadius: '20px',
             width: 'calc(100% - 1rem)',
             maxWidth: 'none',
-            duration: 0.3,
-            ease: 'power1.out'
+            left: '50%',
+            x: '-50%',
+            duration: 0.15,
+            ease: 'power2.out'
           });
         } else {
           gsap.to(header, {
@@ -174,16 +178,16 @@ function App() {
             borderRadius: '30px',
             width: '90%',
             maxWidth: '1200px',
-            duration: 0.3,
-            ease: 'power1.out'
+            duration: 0.15,
+            ease: 'power2.out'
           });
         }
 
         if (logo) {
           gsap.to(logo, {
             fontSize: isMobile ? '18px' : '20px',
-            duration: 0.3,
-            ease: 'power1.out'
+            duration: 0.15,
+            ease: 'power2.out'
           });
         }
 
@@ -191,8 +195,8 @@ function App() {
           gsap.to(menuButton, {
             padding: isMobile ? '10px' : '8px',
             scale: 1,
-            duration: 0.3,
-            ease: 'power1.out'
+            duration: 0.15,
+            ease: 'power2.out'
           });
         }
 
