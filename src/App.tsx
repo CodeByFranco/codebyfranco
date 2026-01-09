@@ -25,31 +25,30 @@ function App() {
     // Fecha o menu primeiro
     setIsMenuOpen(false);
     
-    // Remove bloqueio de scroll imediatamente
-    const isMobile = window.innerWidth <= 768;
-    if (isMobile) {
-      document.body.classList.remove('navbar-open');
-      document.documentElement.classList.remove('navbar-open');
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
-      document.body.style.overflow = '';
-    }
+    // Remove bloqueio de scroll imediatamente (desktop e mobile)
+    document.body.classList.remove('navbar-open');
+    document.documentElement.classList.remove('navbar-open');
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    document.body.style.overflow = '';
     
-    // Aguarda um pouco para o menu fechar e o scroll ser desbloqueado
+    // Aguarda um pouco para o menu fechar
+    const delay = 150;
+    
     setTimeout(() => {
       if (ref.current) {
         // Calcula offset para compensar o header fixo
         const headerHeight = headerRef.current?.offsetHeight || 0;
-        const elementPosition = ref.current.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 20;
+        const elementTop = ref.current.offsetTop;
+        const scrollOffset = headerHeight + 20; // Espaçamento adicional
         
         window.scrollTo({
-          top: Math.max(0, offsetPosition),
+          top: Math.max(0, elementTop - scrollOffset),
           behavior: 'smooth'
         });
       }
-    }, 150);
+    }, delay);
   };
 
   const handleMenuToggle = () => {
@@ -74,11 +73,9 @@ function App() {
     };
   }, [isMenuOpen]);
 
-  // Bloquear scroll quando menu estiver aberto no mobile
+  // Bloquear scroll quando menu estiver aberto (mobile e desktop)
   useEffect(() => {
-    const isMobile = window.innerWidth <= 768;
-    
-    if (isMenuOpen && isMobile) {
+    if (isMenuOpen) {
       // Salva a posição atual do scroll
       const scrollY = window.scrollY;
       
@@ -402,32 +399,31 @@ function App() {
                 onClick={() => {
                   setIsMenuOpen(false);
                   
-                  // Remove bloqueio de scroll imediatamente
-                  const isMobile = window.innerWidth <= 768;
-                  if (isMobile) {
-                    document.body.classList.remove('navbar-open');
-                    document.documentElement.classList.remove('navbar-open');
-                    document.body.style.position = '';
-                    document.body.style.top = '';
-                    document.body.style.width = '';
-                    document.body.style.overflow = '';
-                  }
+                  // Remove bloqueio de scroll imediatamente (desktop e mobile)
+                  document.body.classList.remove('navbar-open');
+                  document.documentElement.classList.remove('navbar-open');
+                  document.body.style.position = '';
+                  document.body.style.top = '';
+                  document.body.style.width = '';
+                  document.body.style.overflow = '';
+                  
+                  const delay = 150;
                   
                   setTimeout(() => {
                     if (formationRef.current) {
                       const certificatesSection = formationRef.current.querySelector('.certificates-section-wrapper') as HTMLElement;
                       if (certificatesSection) {
                         const headerHeight = headerRef.current?.offsetHeight || 0;
-                        const elementPosition = certificatesSection.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 20;
+                        const elementTop = certificatesSection.offsetTop;
+                        const scrollOffset = headerHeight + 20;
                         
                         window.scrollTo({
-                          top: Math.max(0, offsetPosition),
+                          top: Math.max(0, elementTop - scrollOffset),
                           behavior: 'smooth'
                         });
                       }
                     }
-                  }, 150);
+                  }, delay);
                 }}
               >
                 <span className="navbar-item-icon">

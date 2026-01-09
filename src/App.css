@@ -153,50 +153,63 @@
 .navbar-dropdown {
   position: fixed;
 
-  /* CENTRALIZA SEM CORTAR */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  /* Aba lateral - desliza da direita */
+  top: 0;
+  right: 0;
+  left: auto;
+  bottom: 0;
+  transform: translateX(0);
 
-  /* TAMANHO RESPONSIVO */
-  width: min(400px, calc(100vw - 2rem));
-  max-height: calc(100dvh - 4rem);
+  /* Largura da aba lateral */
+  width: 280px;
+  max-width: 85vw;
 
-  background-color: rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
+  /* Altura total da tela */
+  height: 100vh;
+  height: 100dvh;
 
-  padding: 1.5rem;
+  padding: 2rem 1.5rem;
+
+  margin: 0;
+
+  background-color: rgba(0, 0, 0, 0.95);
+  border-left: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 0;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
 
   box-shadow: 
-    0 8px 32px 0 rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    -8px 0 32px 0 rgba(0, 0, 0, 0.5),
+    inset 1px 0 0 rgba(255, 255, 255, 0.1);
 
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 
-  animation: slideDown 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation: slideInFromRight 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   z-index: 1000;
+
+  will-change: transform;
+  isolation: isolate;
 
   overflow-y: auto;
   overflow-x: hidden;
 
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.75rem;
 
   box-sizing: border-box;
 }
 
 
-@keyframes slideDown {
+@keyframes slideInFromRight {
   from {
     opacity: 0;
-    transform: translate(-50%, calc(-50% - 15px)) scale(0.92);
+    transform: translateX(100%);
   }
   to {
     opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
+    transform: translateX(0);
   }
 }
 
@@ -265,6 +278,42 @@
   flex: 1;
   font-weight: 500;
   letter-spacing: 0.02em;
+}
+
+/* Bloquear scroll quando navbar estiver aberto (desktop e mobile) */
+body.navbar-open {
+  position: fixed !important;
+  width: 100% !important;
+  overflow: hidden !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+}
+
+html.navbar-open {
+  overflow: hidden !important;
+}
+
+/* Overlay escuro por trás do menu */
+.navbar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 999;
+  animation: fadeIn 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Responsivo para o navbar */
