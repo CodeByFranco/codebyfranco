@@ -22,10 +22,34 @@ function App() {
   const contatoRef = useMagicBentoButton(true, 170, '59, 130, 246', true, true, true);
 
   const scrollToSection = (ref: React.RefObject<HTMLDivElement | null>) => {
-    if (ref.current) {
-      ref.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setIsMenuOpen(false);
+    // Fecha o menu primeiro
+    setIsMenuOpen(false);
+    
+    // Remove bloqueio de scroll imediatamente
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+      document.body.classList.remove('navbar-open');
+      document.documentElement.classList.remove('navbar-open');
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
     }
+    
+    // Aguarda um pouco para o menu fechar e o scroll ser desbloqueado
+    setTimeout(() => {
+      if (ref.current) {
+        // Calcula offset para compensar o header fixo
+        const headerHeight = headerRef.current?.offsetHeight || 0;
+        const elementPosition = ref.current.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 20;
+        
+        window.scrollTo({
+          top: Math.max(0, offsetPosition),
+          behavior: 'smooth'
+        });
+      }
+    }, 150);
   };
 
   const handleMenuToggle = () => {
@@ -376,13 +400,34 @@ function App() {
               <button 
                 className="navbar-item"
                 onClick={() => {
-                  if (formationRef.current) {
-                    const certificatesSection = formationRef.current.querySelector('.certificates-section-wrapper') as HTMLElement;
-                    if (certificatesSection) {
-                      certificatesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                      setIsMenuOpen(false);
-                    }
+                  setIsMenuOpen(false);
+                  
+                  // Remove bloqueio de scroll imediatamente
+                  const isMobile = window.innerWidth <= 768;
+                  if (isMobile) {
+                    document.body.classList.remove('navbar-open');
+                    document.documentElement.classList.remove('navbar-open');
+                    document.body.style.position = '';
+                    document.body.style.top = '';
+                    document.body.style.width = '';
+                    document.body.style.overflow = '';
                   }
+                  
+                  setTimeout(() => {
+                    if (formationRef.current) {
+                      const certificatesSection = formationRef.current.querySelector('.certificates-section-wrapper') as HTMLElement;
+                      if (certificatesSection) {
+                        const headerHeight = headerRef.current?.offsetHeight || 0;
+                        const elementPosition = certificatesSection.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerHeight - 20;
+                        
+                        window.scrollTo({
+                          top: Math.max(0, offsetPosition),
+                          behavior: 'smooth'
+                        });
+                      }
+                    }
+                  }, 150);
                 }}
               >
                 <span className="navbar-item-icon">
@@ -405,6 +450,17 @@ function App() {
                   </svg>
                 </span>
                 <span className="navbar-item-text">Code Space</span>
+              </button>
+              <button 
+                className="navbar-item"
+                onClick={() => scrollToSection(contactSectionRef)}
+              >
+                <span className="navbar-item-icon">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </span>
+                <span className="navbar-item-text">Contato</span>
               </button>
               </nav>
             </>
