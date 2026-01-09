@@ -50,6 +50,39 @@ function App() {
     };
   }, [isMenuOpen]);
 
+  // Bloquear scroll quando menu estiver aberto no mobile
+  useEffect(() => {
+    const isMobile = window.innerWidth <= 768;
+    
+    if (isMenuOpen && isMobile) {
+      // Salva a posição atual do scroll
+      const scrollY = window.scrollY;
+      
+      // Adiciona classe para bloquear scroll
+      document.body.classList.add('navbar-open');
+      document.documentElement.classList.add('navbar-open');
+      
+      // Bloqueia o scroll via inline styles também
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
+      
+      return () => {
+        // Remove classe
+        document.body.classList.remove('navbar-open');
+        document.documentElement.classList.remove('navbar-open');
+        
+        // Restaura o scroll quando fechar
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        document.body.style.overflow = '';
+        window.scrollTo(0, scrollY);
+      };
+    }
+  }, [isMenuOpen]);
+
   // Animação de entrada do header
   useEffect(() => {
     const header = headerRef.current;
