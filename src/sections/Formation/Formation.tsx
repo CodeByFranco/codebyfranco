@@ -17,11 +17,13 @@ function Formation() {
       name: 'Discover',
       file: certificadoDiscover,
       description: 'Formação Discover - Rocketseat',
+      date: '20/02/2025'
     },
     {
       name: 'Next.js App Router e Testes',
       file: certificadoNextjs,
       description: 'Next.js App Router e Testes - Rocketseat',
+      date: '29/10/2025'
     }
   ]
 
@@ -38,15 +40,15 @@ function Formation() {
   }
   const academicFormation = {
     course: 'Analise e Desenvolvimento de Sistemas (UCS - RS)',
-    status: 'Cursando'
+    status: 'Cursando (2023 - 2026 / Conclusão)' 
   }
   
   const complementaryCourses = [
-    'Desenvolvimento Web (HTML, CSS, JavaScript)',
-    'Node.js e criação de APIs',
-    'Next.js App Router e Testes',
+    'Desenvolvimento Web (HTML, CSS, JavaScript) (Junho/2024)',
+    'Node.js e criação de APIs (Julho/2025)',
+    'Next.js App Router e Testes (Outubro/2025)',
     'Git & GitHub',
-    'Arquitetura frontend/backend'
+    'Arquitetura frontend/backend (Novembro/2025)'
   ]
 
   return (

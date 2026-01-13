@@ -64,6 +64,16 @@ function CodeSpace() {
       problemSolved: 'Interface moderna e profissional para centralizar links e apresentar serviços de forma organizada.',
       technologies: ['HTML5', 'CSS3', 'Typescript'],
       link: 'https://ohomemdacasa-site.vercel.app/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn5On9B_kcsSa9YjNf1MHgKtkf6bFN6t0wMLuAhGxQTnbOnkAaTwDOrwDkuxk_aem_xeXvtIjVTb86gVpnsDpP2w'
+    },
+    {
+      id: 5,
+      title: 'Daily Journal',
+      subtitle: 'Jornal diário informativo',
+      status: 'development',
+      statusText: 'Em desenvolvimento',
+      description: 'Jornal diário informativo sobre as noticias do mundo, sem tomar nenhum lado nós te damos apenas as noticias. Desenvolvendo a aplicação para por o Jornal no ar.',
+      problemSolved: 'De forma eficiente, profissional e diaria. Com as noticias sempre a disposição.',
+      technologies: ['React', 'Next.js', 'API']
     }
   ]
 
