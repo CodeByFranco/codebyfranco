@@ -74,6 +74,28 @@ function CodeSpace() {
       description: 'Jornal diário informativo sobre as noticias do mundo, sem tomar nenhum lado nós te damos apenas as noticias. Desenvolvendo a aplicação para por o Jornal no ar.',
       problemSolved: 'De forma eficiente, profissional e diaria. Com as noticias sempre a disposição.',
       technologies: ['React', 'Next.js', 'API']
+    },
+    {
+      id: 6,
+      title: 'Catalogo de Produtos',
+      subtitle: 'Catalogo de produtos para venda',
+      status: 'completed',
+      statusText: 'Concluído',
+      description: 'Um catalogo que apresenta produtos não vendidos a pronta entrega. Para facilitar a venda dos produtos e o cliente ter uma visão clara dos produtos disponiveis. Com calculo de parcelamento acrescentando juros, botão de exportação em PDF e Imagens.',
+      problemSolved: 'Uma forma eficiente e profissional de apresentar produtos para venda. Com calculo de parcelamento acrescentando juros, botão de exportação em PDF e Imagens.',
+      technologies: ['Next.js', 'App Routers', 'Supabase'],
+      link: 'https://psl-catalogo.vercel.app/'
+    },
+    {
+      id: 7,
+      title: 'BeckerPneus - Page',
+      subtitle: 'Link Page / Apresentação',
+      status: 'completed',
+      statusText: 'Concluído',
+      description: 'Página de links e apresentação de conteúdos para prestador de serviços.',
+      problemSolved: 'Interface moderna e profissional para centralizar links e apresentar serviços de forma organizada.',
+      technologies: ['React', 'Next.js', 'API'],
+      link: 'https://beckerpneus.vercel.app/'
     }
   ]
 
